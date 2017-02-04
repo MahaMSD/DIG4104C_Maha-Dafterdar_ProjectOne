@@ -6,7 +6,7 @@
 body {
     background: #000000;
     font-family: Helvetica;
-    width: 24000px;
+    width: 21900px;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -16,7 +16,7 @@ body {
 .section {
     margin: 0px;
     bottom: 0px;
-    width: 4000px;
+    width: 3650px;
     float: left;
     height: 100%;
 }
