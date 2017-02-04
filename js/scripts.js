@@ -228,8 +228,8 @@ var vis = svg_node.append("g")
   				  .attr("transform", "translate(" + padding.left + "," + padding.right + ")")
 
 var demo_data = [
-  {"language": "HTML", "Average": "4"}, // Noise data
-  {"language": "CSS", "Average": "4"}, // Noise data
+  {"language": "HTML", "Average": "4"}, 
+  {"language": "CSS", "Average": "4"}, 
   {"language": "JavaScript","Average": "3.6"}, 
   {"language": "jQuery","Average": "2.8"}, 
   {"language": "PHP","Average": "1.5"}, 
