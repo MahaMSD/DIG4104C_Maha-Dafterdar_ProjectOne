@@ -232,6 +232,7 @@ var demo_data = [
   {"language": "CSS", "Average": "4"}, 
   {"language": "JavaScript","Average": "3.6"}, 
   {"language": "jQuery","Average": "2.8"}, 
+  {"language": "D3.js","Average": "0.5"}, 
   {"language": "PHP","Average": "1.5"}, 
   {"language": "MySQL","Average": "1.3"}
 ]
