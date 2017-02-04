@@ -36,6 +36,11 @@ body {
     line-height: 33px;
 }
 
+.section div#centerd3 {
+    margin: 20px 0px 0px 50px;
+    width: 600px;
+}
+
 .black{
     color: #ffffff;
     background: #000000 url(../img/black.jpg) no-repeat top right;
@@ -97,6 +102,126 @@ a:hover {
 /* ----------- end of style for the horizontal scrolling ------------- */
 
 /* ----------- style for the d3 animated chart ------------ */
+/*p,div {
+    font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+    font-size: 13px;
+    line-height: 25px;
+}*/
+
+.t2 { 
+    font-size: 150%; 
+}
+
+/*float*/
+.fl { 
+    float: left; 
+}
+
+.fr { 
+    float: right; 
+}
+
+.fn { 
+    float: none; 
+}
+
+.title { 
+    padding-left: 260px;
+}
+
+.y-axis path {
+  fill: none;
+  stroke: none;
+}
+
+.y-axis line, .string,
+.x-axis path, .x-axis line {
+  fill: none;
+  stroke: #cccccc;
+  shape-rendering: crispEdges;
+}
+
+.xLabel, .value { 
+    text-anchor: middle; 
+    color: white;
+}
+
+.y-unit {
+  alignment-baseline: middle;
+}
+
+.y-unit-right {
+  text-anchor: end;
+}
+
+.wide-tick line {
+  stroke-width: 7px;
+}
+
+.numb, .y-axis text, .x-axis text {
+  pointer-events: none;
+}
+
+.brush .extent {
+  stroke: #FFF;
+  shape-rendering: crispEdges;
+  fill: #E6E7E8;
+  opacity: 1.0;
+}
+
+.clickable {
+  cursor: hand;
+}
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  border-radius: 6px;
+}
+
+text { 
+    font-size: 12px; 
+}
+
+.ctext { 
+    text-align: "middle" 
+}
+
+.hide { 
+    display: none; 
+}
+
+.dbg-vis-border {
+  border: #797979 solid 1px;
+}
+
+.dbg-svg-green {
+  fill: #00ff00;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/* layout stuff */
+.mt1 {
+  margin-top: 25px;
+}
+
+.pt1 {
+  padding-top: 15px;
+}
+
+.pr2 {
+  padding-right: 30px;
+}
+
+.ml2 {
+  margin-left: 40px;
+}
 
 
 
