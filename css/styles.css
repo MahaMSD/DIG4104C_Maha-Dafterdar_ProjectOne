@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #000000;
+    font-family: Helvetica;
+    width: 12000px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+}
+
+.section {
+    margin: 0px;
+    bottom: 0px;
+    width: 4000px;
+    float: left;
+    height: 100%;
+}
+
+.section h2 {
+    font-style: italic;
+    font-size: 34px;
+    margin: 50px 0px 30px 50px;
+    text-shadow: 1px 1px 2px #f0f0f0;
+}
+
+.section p {
+    margin: 20px 0px 0px 50px;
+    width: 600px;
+    font-size: 26px;
+    line-height: 33px;
+}
+
+.black{
+    color: #ffffff;
+    background: #000000 url(../img/black.jpg) no-repeat top right;
+}
+
+.white {
+    color:#000000;
+    background: #ffffff url(../img/white.jpg) no-repeat top right;
+}
+
+.section ul {
+    list-style: none;
+    margin: 20px 0px 0px 550px;
+}
+
+.black ul li {
+    float: left;
+    padding: 5px;
+    margin: 5px;
+    color: #aaa;
+}
+
+.black ul li a {
+    display: block;
+    color: #f0f0f0;
+}
+
+.black ul li a:hover {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.white ul li {
+    float: left;
+    padding: 5px;
+    margin: 5px;
+    color: #aaaaaa;
+}
+
+.white ul li a {
+    display: block;
+    color: #222222;
+}
+
+.white ul li a:hover {
+    text-decoration: none;
+    color: #000000;
+}
+
+a {
+    color:#fff;
+    text-decoration:none;
+}
+
+a:hover {
+    text-decoration:underline;
+}
+        

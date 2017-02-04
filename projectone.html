@@ -5,7 +5,7 @@
 			@import url('css/reset.css');
 		</style>
 		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!--Google Icon Fonts-->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css"> <!--Materialize CSS-->
+		<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">--> <!--Materialize CSS-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta charset="UTF-8">
 		<title>Maha Dafterdar</title>
@@ -15,16 +15,80 @@
 		</style>
 	</head>
 	<body>
+	<!-- add navigation here -->
+		<img src="img/mdlogofull.svg" alt="mahadafterdar" height="70">
+
+        <div class="section black" id="section1">
+            <h2>Hi, I'm Maha Dafterdar</h2>
+            <p>
+                I'm currently a senior student at UCF. I'm interested in front-end web development as well as UX/UI design, and currently looking for a job position in that feild.
+            </p>
+            <ul class="nav">
+                <li>1</li>
+                <li><a href="#section2">2</a></li>
+                <li><a href="#section3">3</a></li>
+            </ul>
+        </div>
+        <div class="section white" id="section2">
+            <h2>Section 2</h2>
+            <p>
+                ‘A fathomless and boundless deep,
+                There we wander, there we weep;
+                On the hungry craving wind
+                My Spectre follows thee behind.
+
+            </p>
+            <ul class="nav">
+                <li><a href="#section1">1</a></li>
+                <li>2</li>
+                <li><a href="#section3">3</a></li>
+            </ul>
+        </div>
+        <div class="section black" id="section3">
+            <h2>Section 3</h2>
+            <p>
+                ‘He scents thy footsteps in the snow
+                Wheresoever thou dost go,
+                Thro’ the wintry hail and rain.
+                When wilt thou return again?
+
+            </p>
+            <ul class="nav">
+                <li><a href="#section1">1</a></li>
+                <li><a href="#section2">2</a></li>
+                <li>3</li>
+            </ul>
+        </div>
 
 
 
-
-
-		<!--JS is loaded at the end of the body to reduce page load time-->
+		<!-- Javascript loaded at the end -->
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script> <!--jQuery-->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script> <!--Materialize JS-->
+
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>	
+		<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>--> <!--Materialize JS-->
 
 		<!-- external script sheet -->
 		<script src="js/scripts.js"></script>
+
+		<!-- extra scripts/ jQuery -->
+		<script>
+			$(function() {
+                $('ul.nav a').bind('click',function(event){
+                    var $anchor = $(this);
+                    /*
+                    if you want to use one of the easing effects:
+                    $('html, body').stop().animate({
+                        scrollLeft: $($anchor.attr('href')).offset().left
+                    }, 1500,'easeInOutExpo');
+                     */
+                    $('html, body').stop().animate({
+                        scrollLeft: $($anchor.attr('href')).offset().left
+                    }, 1000);
+                    event.preventDefault();
+                });
+            });
+		</script>
+
 	</body>
 </html>
