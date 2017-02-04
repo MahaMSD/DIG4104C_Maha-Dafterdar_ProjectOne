@@ -213,125 +213,128 @@ jQuery.extend( jQuery.easing,
 var width = 640
 var height = 360
 var padding = {
-  "top": 30,
-  "left": 30,
-  "bottom": 30,
-  "right": 30
+	"top": 30,
+  	"left": 30,
+  	"bottom": 30,
+  	"right": 30
 }
+
 var svg_node = d3.select("#svg_container").append("svg")
-  .attr("width", width + padding.left + padding.right)
-  .attr("height", height + padding.top + padding.bottom)
-  .attr("calss", "dbg-vis-border")
+  				 .attr("width", width + padding.left + padding.right)
+  				 .attr("height", height + padding.top + padding.bottom)
+   				 .attr("calss", "dbg-vis-border")
+
 var vis = svg_node.append("g")
-  .attr("transform", "translate(" + padding.left + "," + padding.right + ")")
+  				  .attr("transform", "translate(" + padding.left + "," + padding.right + ")")
 
 var demo_data = [
-  {"state": "TN", "Average-GPA": "-"}, // Noise data
-  {"state": "FL", "Average-GPA": "5.3"}, // Noise data
-  {"state": "AL","Average-GPA": "3.6"}, 
-  {"state": "AK","Average-GPA": "2.00001"}, 
-  {"state": "AZ","Average-GPA": "0.75"}, 
-  {"state": "AR","Average-GPA": "3.7"}, 
-  {"state": "CA","Average-GPA": "4"}, 
-  {"state": "CO","Average-GPA": "3.1"}, 
-  {"state": "CT","Average-GPA": "3.9"}
+  {"language": "HTML", "Average": "4"}, // Noise data
+  {"language": "CSS", "Average": "4"}, // Noise data
+  {"language": "JavaScript","Average": "3.6"}, 
+  {"language": "jQuery","Average": "2.8"}, 
+  {"language": "PHP","Average": "1.5"}, 
+  {"language": "MySQL","Average": "1.3"}
 ]
 
 var x_scale = d3.scale.ordinal()
-  .domain(demo_data.map(function(d) { return d["state"] }))
-  .rangeRoundBands([0, width])
+  					  .domain(demo_data.map(function(d) { return d["language"] }))
+  					  .rangeRoundBands([0, width])
+
 var x_axis = d3.svg.axis().orient("bottom").scale(x_scale)
-  .tickSize(3, 2, 0)
-vis.append("g").attr("class", "x-axis").call(x_axis)
-  .attr("transform", "translate(0," + height + ")")
+  				   .tickSize(3, 2, 0)
+			    vis.append("g").attr("class", "x-axis").call(x_axis)
+  				   .attr("transform", "translate(0," + height + ")")
+
 var y_scale = d3.scale.linear()
-  .domain([0, 4])
-  .range([height, 0])
+  					  .domain([0, 4])
+  				   	  .range([height, 0])
+
 var y_axis = d3.svg.axis().orient("left").scale(y_scale)
-vis.append("g").attr("class", "y-axis").call(y_axis)
+				vis.append("g").attr("class", "y-axis").call(y_axis)
+
 var color_scale = d3.scale.category10().domain(x_scale.domain())
 
 var circle_container = vis.append("g").attr("id", "vis_content")
 
 var groups = circle_container.selectAll("g")
-  .data(demo_data.filter(function(d) {
-  // Try to convert string to int, parseFloat() also works
-    var gpa = +d["Average-GPA"]
+  			                 .data(demo_data.filter(function(d) {
+	// Try to convert string to int, parseFloat() also works
+	var gpa = +d["Average"]
     // Write filter conditions so that the gpa is a number and in [0, 4]
     return !isNaN(gpa) && 0 <= gpa && gpa <= 4
-  })).enter()
-  .append("g")
-  .attr("transform", function(d) {
-    return "translate(" + (x_scale(d["state"]) + x_scale.rangeBand() / 2 ) + ",0)" 
-  })
+})).enter()
+   .append("g")
+   .attr("transform", function(d) {
+    return "translate(" + (x_scale(d["language"]) + x_scale.rangeBand() / 2 ) + ",0)" 
+})
 groups.append("line")
-  .style("stroke-width", 1)
-  .style("stroke", function(d) { return color_scale(d["state"]) })
-  .attr("x1", 0).attr("y1", function(d) { return y_scale(d["Average-GPA"]) })
-  .attr("x2", 0).attr("y2", height)
+  	  .style("stroke-width", 1)
+      .style("stroke", function(d) { return color_scale(d["language"]) })
+      .attr("x1", 0).attr("y1", function(d) { return y_scale(d["Average"]) })
+      .attr("x2", 0).attr("y2", height)
 
 groups.append("circle")
-  .attr("cx", 0)
-  .attr("cy", function(d) { return y_scale(d["Average-GPA"]) })
-  .attr("r", 10)
-  .style("fill", function(d) { return color_scale(d["state"]) })
+      .attr("cx", 0)
+      .attr("cy", function(d) { return y_scale(d["Average"]) })
+      .attr("r", 10)
+      .style("fill", function(d) { return color_scale(d["language"]) })
 
 groups.append("text")
-  .attr("class", "value")
-  .attr("x", 0)
-  .attr("y", function(d) { return y_scale(d["Average-GPA"]) - 15 })
-  .text(function(d) { return (+d["Average-GPA"]).toFixed(2) })
+      .attr("class", "value")
+      .attr("x", 0)
+      .attr("y", function(d) { return y_scale(d["Average"]) - 15 })
+      .text(function(d) { return (+d["Average"]).toFixed(2) })
 
 function filter_selection() {
-  // Getting the value from the <input> with id "cut_off"
-  // Refer to HTML to find it:)
-  var lower_limit = d3.select("#cut_off").node().value
-  // States to show: increase r for them
-  var selected = vis.selectAll("circle").filter(function(d) {
-    return d["Average-GPA"] >= lower_limit
-  })
-  var notNeeded = vis.selectAll("circle").filter(function(d) {
+	// Getting the value from the <input> with id "cut_off"
+  	// Refer to HTML to find it:)
+  	var lower_limit = d3.select("#cut_off").node().value
+  	// languages to show: increase r for them
+  	var selected = vis.selectAll("circle").filter(function(d) {
+    	return d["Average"] >= lower_limit
+  	})
+  	var notNeeded = vis.selectAll("circle").filter(function(d) {
         // Reversed condition
-        return d["Average-GPA"] < lower_limit
-      })
-  selected.transition().duration(300)
-    .delay(function(d, i) { return i * 100 })
-    .attr("r", 30)
-    .transition()
-    .delay(function(d, i) { return i * 100 + 300 })
-    .attr("cy", function(d) { return y_scale(d["Average-GPA"]) })
-  // Animate radius to 0 for those states
-  notNeeded.transition()
-    .duration(300)
-    .attr("cy", height)
-    .transition()
-    .delay(300)
-    .attr("r",0)
+        return d["Average"] < lower_limit
+    })
+  	selected.transition().duration(300)
+    		.delay(function(d, i) { return i * 100 })
+   			.attr("r", 30)
+    		.transition()
+    		.delay(function(d, i) { return i * 100 + 300 })
+    		.attr("cy", function(d) { return y_scale(d["Average"]) })
+  	// Animate radius to 0 for those languages
+  	notNeeded.transition()
+    		 .duration(300)
+     		 .attr("cy", height)
+    		 .transition()
+    		 .delay(300)
+    		 .attr("r",0)
 
-  // Animate lines to grow up from the x-axis
-  circle_container.selectAll("line").filter(function(d) {
-    return d["Average-GPA"] >= lower_limit
-  }).transition().duration(300)
-    .delay(function(d, i) { return i * 100 + 300 })
-    .attr("y1", function(d) { return y_scale(d["Average-GPA"]) })
-  // Animate lines to shrink down to the x-axis
-  circle_container.selectAll("line").filter(function(d) {
-    return d["Average-GPA"] < lower_limit
-  }).transition().duration(300)
-    .attr("y1", height)
+  	// Animate lines to grow up from the x-axis
+  	circle_container.selectAll("line").filter(function(d) {
+    	return d["Average"] >= lower_limit
+  	}).transition().duration(300)
+      .delay(function(d, i) { return i * 100 + 300 })
+      .attr("y1", function(d) { return y_scale(d["Average"]) })
+  	// Animate lines to shrink down to the x-axis
+  	circle_container.selectAll("line").filter(function(d) {
+    	return d["Average"] < lower_limit
+ 	}).transition().duration(300)
+      .attr("y1", height)
   
-  // Animate opacity to 1 for the GPA text needed
-  circle_container.selectAll("text").filter(function(d) {
-    return d["Average-GPA"] >= lower_limit
-  }).transition().duration(300)
-    .delay(function(d, i) { return i * 100 + 400 })
-    .attr("y", function(d) { return y_scale(d["Average-GPA"]) + 5 })
-    .style("opacity", 1)
-  // Animate on opacity to 0 for the GPA text not needed
-  circle_container.selectAll("text").filter(function(d) {
-    return d["Average-GPA"] < lower_limit
-  }).transition().duration(300)
-    .style("opacity", 0)
+  	// Animate opacity to 1 for the GPA text needed
+  	circle_container.selectAll("text").filter(function(d) {
+    	return d["Average"] >= lower_limit
+  	}).transition().duration(300)
+      .delay(function(d, i) { return i * 100 + 400 })
+      .attr("y", function(d) { return y_scale(d["Average"]) + 5 })
+     .style("opacity", 1)
+  	// Animate on opacity to 0 for the GPA text not needed
+  	circle_container.selectAll("text").filter(function(d) {
+    	return d["Average"] < lower_limit
+  	}).transition().duration(300)
+      .style("opacity", 0)
 }
 
  /* ------------------ end of javascript for the animated d3 chart ------------- */
