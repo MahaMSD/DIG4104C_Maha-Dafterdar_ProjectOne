@@ -1,3 +1,4 @@
+/* --------- style for the horizontal scrolling page --------- */
 * {
     margin: 0;
     padding: 0;
@@ -92,4 +93,13 @@ a {
 a:hover {
     text-decoration:underline;
 }
+
+/* ----------- end of style for the horizontal scrolling ------------- */
+
+/* ----------- style for the d3 animated chart ------------ */
+
+
+
+
+/* ----------- end of style for the animated d3 chart ------------ */
         

@@ -1,3 +1,5 @@
+/*------------ javascript for the horizontal scrolling page ---------- */
+
 /*
  * jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/
  *
@@ -203,3 +205,12 @@ jQuery.extend( jQuery.easing,
  * OF THE POSSIBILITY OF SUCH DAMAGE. 
  *
  */
+
+ /* -------------------- end of javascript for the horizontal scrolling page ------ */
+
+ /* -------------------- javascript for the d3 animated chart ----------------- */
+
+
+
+
+ /* ------------------ end of javascript for the animated d3 chart ------------- */
